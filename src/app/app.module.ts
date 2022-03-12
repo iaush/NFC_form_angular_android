@@ -9,8 +9,10 @@ import { NFC, Ndef } from "@awesome-cordova-plugins/nfc/ngx";
 import { IonicModule } from '@ionic/angular';
 
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+/*import { FormsModule } from '@angular/forms';*/
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -22,7 +24,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     MatStepperModule,
+    MatSlideToggleModule,
     BrowserAnimationsModule,
+    /*FormsModule,*/ 
+    MatCheckboxModule,
     
     IonicModule.forRoot()
   ],

@@ -1,3 +1,11 @@
 ::ng-deep .mat-horizontal-stepper-header{
     pointer-events: none !important;
 }
+
+::ng-deep .mat-slide-toggle-content {
+    white-space: normal !important;
+  }
+
+::ng-deep .mat-checkbox-frame {
+    border-color: white
+  }
