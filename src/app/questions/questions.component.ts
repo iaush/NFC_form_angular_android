@@ -60,7 +60,7 @@ transition-duration: 0.5s;
 } 
 
 input[type=text], input[type=email] { 
-padding: 1vw; 
+padding: 3vw; 
 width: 90%; 
 font-size: 4vw; 
 border: 1px solid #aaaaaa; 
@@ -121,11 +121,11 @@ animation: slide 500ms ease-in-out forwards;
 .radio-toolbar label {
     display: inline-block;
     background-color: darkslategrey;
-    padding: 10px 20px;
+    padding: 0.5vw 1vw;
     font-family: sans-serif, Arial;
-    font-size: 16px;
+    font-size: 4vh;
     margin: 0 auto 2vh auto;
-    border: 2px solid #444;
+    border: 3px solid #444;
     border-radius: 4px;
 }
 
@@ -143,19 +143,19 @@ ul{
 
 text-align: left;
 list-style-type: none;
-margin: 3vh -6vw 5vh -6vw; /* To remove default bottom margin */ 
+margin: 3vh -6vw 3vh -6vw; /* To remove default bottom margin */ 
 padding: 0; /* To remove default left padding */
 }
 
 .checkbox{
 color:white;
-font-size: 3vw;
+font-size: 2.5vw;
 text-align: left;
 vertical-align: middle;
 }
 
 li{
-    display: inline-block
+    display: block
 }
 
 #submit{ 
@@ -215,7 +215,7 @@ border-color: #333333;
 
 .checkbox_header{
 color:white;
-font-size: 4vw;
+font-size: 3vw;
 text-align: left;
 padding 3px 3px;
 vertical-align: middle;
@@ -223,7 +223,8 @@ margin 2vh 0;
 display: inline-block; 
 font-weight:bold;
 border-radius: 10px;
-border: 4px solid skyblue;
+border: 0.5vw solid skyblue;
+padding : 0.5vw 1vw;
 }
 
 
@@ -298,8 +299,10 @@ opacity: 1;
              <label> Contact Number </label>
              <input type="text" name="number" id="number" placeholder="Number" value='' > 
          </div> 
-         <div class="group" style='text-align:left; margin: 0 4vw 8vw 4vw'> 
-             <mat-slide-toggle>I agree and consent to share my personal data with SIMTech, A*STAR</mat-slide-toggle>
+         <div class="group" style='text-align:left; margin: 0 4vw 8vw 4vw' size="large"> 
+             <mat-slide-toggle>
+                 <span style='font-size: 2vw'>I agree and consent to share my personal data with SIMTech, A*STAR</span>
+                </mat-slide-toggle>
          </div> 
 
          <button type='button' style='height: 20%; width:50%; padding:3vw ;font-size: 6vw; font-weight: bold; border-radius:1vw' 
@@ -308,23 +311,23 @@ opacity: 1;
      </div>  
 
     <div class="card" id="card3" [ngClass]="{'active': open3}"> 
-        <p style='text-align: center; margin: 4vh auto ; font-size: 5vw; color:white  '> How useful is the exhibition? </p>
+        <p style='text-align: center; margin: 0 auto 4vh auto ; font-size: 5vw; color:white  '> How useful is the exhibition? </p>
         <div id="rating" class="radio-toolbar" >
 
             <input type="radio" id='r5' name="rating" value=5 checked> 
-            <label for ='r5'style='color:white; text-align: Left;font-size: 4vw; margin 8vw'>Excellent</label>
+            <label for ='r5'style='color:white; text-align: Left;font-size: 6vw; margin: 2vw; padding: 2vw'> 5 - Excellent</label>
 
             <input type="radio" id='r4' name="rating" value=4 > 
-            <label for ='r4'style='color:white; text-align: Left;font-size: 4vw; margin 8vw'>Very Good</label>
+            <label for ='r4'style='color:white; text-align: Left;font-size: 6vw; margin: 2vw; padding: 2vw'> 4 - Very Good</label>
 
             <input type="radio" id='r3' name="rating" value=3 > 
-            <label for ='r3'style='color:white; text-align: Left;font-size: 4vw; margin 8vw'>Good</label>
+            <label for ='r3'style='color:white; text-align: Left;font-size: 6vw; margin: 2vw; padding: 2vw'> 3 - Good</label>
 
             <input type="radio" id='r2' name="rating" value=2 > 
-            <label for ='r2'style='color:white; text-align: Left;font-size: 4vw; margin 8vw'>Fair</label>
+            <label for ='r2'style='color:white; text-align: Left;font-size: 6vw; margin: 2vw; padding: 2vw'> 2 - Fair</label>
 
             <input  type="radio" id='r1' name="rating" value=1 > 
-            <label for ='r1'style='color:white; text-align: Left;font-size: 4vw; margin 8vw'>Poor</label>
+            <label for ='r1'style='color:white; text-align: Left;font-size: 6vw; margin: 2vw; padding: 2vw'> 1 - Poor</label>
             
         </div>
         
@@ -334,27 +337,26 @@ opacity: 1;
         
 
         <div class="card" style='margin: 4vh auto 4vh auto; ' id="card4" [ngClass]="{'active': open4}" >
-            <p style='text-align: center; margin: 1vh -4vw 0 -4vw ; font-size: 4vw; color:white'>
+            <p style='text-align: center; margin: 1vh -5vw 0 -5vw ; font-size: 4vw; color:white'>
             Which areas of the exhibition would you like to explore further? We will be connecting you with specialist from that field via email</p>
              
             <ul class='container'>
-                <div style='display: block; '><span class='checkbox_header'>Co-Create</span></div>
+                <div style='display: block; margin:0.5vh 0'><span class='checkbox_header'>Co-Create</span></div>
                 <li><input type='checkbox' name='interest' value=1 ><span class='checkbox'>Co-Create (CLF Award winning papers)</span></li>
                 <li><input type='checkbox' name='interest' value=2><span class='checkbox'>Co-Create (SIMTech's Research Highlights)</span></li>
                 
-                <div style='display: block; '><span class='checkbox_header'>Explore</span></div>
+                <div style='display: block; margin:0.5vh 0'><span class='checkbox_header'>Explore</span></div>
                 <li><input type='checkbox' name='interest' value=3><span class='checkbox'>Explore (Fong's Engineering and Manufacturing Pte Ltd)</span></li>
                 <li><input type='checkbox' name='interest' value=4><span class='checkbox'>Explore (Phillips Singapore)</span></li>
                 
-                <div style='display: block; '><span class='checkbox_header'>Form</span></div>
+                <div style='display: block; margin:0.5vh 0'><span class='checkbox_header'>Form</span></div>
                 <li><input type='checkbox' name='interest' value=5><span class='checkbox'>Form (SIMTech Methodologies and Frameworks on Digitalisation)</span></li>
                 <li><input type='checkbox' name='interest' value=6><span class='checkbox'>Form (SEAC Methodologies and Frameworks on Sustainability)</span></li>
                 
-                <div style='display: block; margin:1vh 0 '><span class='checkbox_header'>Implement</span></div>
+                <div style='display: block; margin:0.5vh 0'><span class='checkbox_header'>Implement</span></div>
                 <li><input type='checkbox' name='interest' value=7><span class='checkbox'>Implement (Beckhoff Automation Pte Ltd)</span></li>
                 <li><input type='checkbox' name='interest' value=8><span class='checkbox'>Implement (InnoArk Pte Ltd)</span></li>
                 <li><input type='checkbox' name='interest' value=9><span class='checkbox'>Implement (Blum-Novotest GmbH)</span></li>
-                
                 <li><input type='checkbox' name='interest' value=10><span class='checkbox'>Implement (Hexagon)</span></li>
                 <li><input type='checkbox' name='interest' value=11><span class='checkbox'>Implement (Schneider Electric Singapore Pte Ltd)</span></li>
                 <li><input type='checkbox' name='interest' value=12><span class='checkbox'>Implement (Singapore Contec Pte Ltd)</span></li>
@@ -366,7 +368,14 @@ opacity: 1;
 
             </ul>
             
-            <button type='button' style='height: 20%; width:50%; padding:3vw ; margin:2vh 0;font-size: 6vw; font-weight: bold; border-radius:1vw' 
+            <div class="group" style='text-align:left; margin: 2vw -4vw 6vw -4vw'> 
+             <mat-slide-toggle size="large">
+                 <span style='font-size: 2vw; color: white'>By submitting this form, you agree and consent to your personal data which you
+                provided being shared with the companies you have expressed your interest in</span>
+                </mat-slide-toggle>
+            </div> 
+
+            <button type='button' style='height: 20%; width:50%; padding:2vw ; margin:0.5vh 0;font-size: 4vw; font-weight: bold; border-radius:1vw' 
             id="next_btn" (click)="printvalue();open4 = !open4; open5=!open5"> NEXT </button> 
             
         </div>
@@ -458,7 +467,6 @@ export class QuestionsComponent implements OnInit {
                 const inputnameElement = <HTMLInputElement> document.getElementById("name")
                 inputnameElement.value= msg.split('FN:')[1].split('ORG')[0]
                 
-            
                 const inputemailElement = <HTMLInputElement> document.getElementById("email")
                 inputemailElement.value= msg.split('EMAIL:')[1].split('ADR:')[0]
                 
