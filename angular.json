@@ -107,7 +107,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "NFC_form:build:production"
+              "browserTarget": "NFC_form:build:production",
+              "proxyConfig": "src/environments/proxy.conf.json"
             },
             "development": {
               "browserTarget": "NFC_form:build:development"

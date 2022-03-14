@@ -11,9 +11,12 @@ import { IonicModule } from '@ionic/angular';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-/*import { FormsModule } from '@angular/forms';
-import { FormGroup, FormControl, Validators } from '@angular/forms';*/
+import { FormsModule } from '@angular/forms';
+// import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,11 +30,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatStepperModule,
     MatSlideToggleModule,
     BrowserAnimationsModule,
-    /*FormsModule,
-    FormGroup, 
+    FormsModule,
+    /*FormGroup, 
     FormControl, 
     Validators, */
     MatCheckboxModule,
+    HttpClientModule,
     
     IonicModule.forRoot()
   ],
