@@ -1,0 +1,8 @@
+{
+    "/forms/*":{
+        "target": "https://docs.google.com/forms",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {"^/forms" : ""}
+    }
+}

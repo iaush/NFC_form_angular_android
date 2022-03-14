@@ -1,0 +1,159 @@
+<body style="background-image: url('assets/R2_Background.png'); background-size:cover">
+    <form>
+        <!--<div class='spinpop' id='spin' *ngIf="showspinner">
+           <ion-spinner type='bubbles' color='danger'></ion-spinner>
+       </div>
+   
+       <h1 style='text-align: center; margin: 20% auto 10% auto'> Some words to descibe </h1>
+   
+       <div class='progress_bar'>
+           <mat-horizontal-stepper #stepper labelPosition="bottom" >
+               <mat-step label='Particulars' ></mat-step>
+               <mat-step label='Feedback' ></mat-step>
+               <mat-step label='Submit' ></mat-step>
+           </mat-horizontal-stepper>
+       </div> -->
+
+        <div class="card active" style='font-weight: bold' id="card1" [ngClass]="{'active': open}">
+            <h1 style='text-align: center; margin: 8vh auto 4vh auto; color: white'> Logo placeholder </h1>
+
+            <p style='text-align: center; margin: 2vh auto 0 auto;font-size: 8vw; color:#2096BA '> <span
+                    style='color:white'>CLF</span> x <span style='color:white'>MPTC</span> 2022</p>
+            <p style='text-align: center; margin: 0 auto ; font-size: 8vw; color:#2096BA  '> EXHIBITION </p>
+            <p style='text-align: center;  margin: 0 auto 8vh auto;font-size: 8vw; color:#2096BA  '> FEEDBACK FORM </p>
+
+            <button type='button'
+                style='border-radius: 6vw; height: 20%; width:50%; padding:3vw ;font-size: 6vw; font-weight: bold'
+                id="next_btn" (click)="open = !open; open2=!open2"> BEGIN </button>
+            <!--<button type='button'  (click)="testblink()"> Test </button>-->
+        </div>
+
+
+
+
+        <div class="card active" style='background-color: rgb(252, 252, 252); border-radius: 1vw;  border: 1px solid'
+            id="card1" [ngClass]="{'active': open2}">
+
+            <div class="group" style='margin: 4vw auto'>
+                <label> Your Name </label>
+                <input type="text" name="name" id="name" placeholder="Name" value=''>
+            </div>
+            <div class="group" style='margin: 4vw auto'>
+                <label> Your Email </label>
+                <input type="email" name="email" id="email" placeholder="Email" value=''>
+            </div>
+            <div class="group" style='margin: 4vw auto'>
+                <label> Contact Number </label>
+                <input type="text" name="number" id="number" placeholder="Number" value=''>
+            </div>
+            <div class="group" style='text-align:left; margin: 0 4vw 8vw 4vw'>
+                <mat-slide-toggle>I agree and consent to share my personal data with SIMTech, A*STAR</mat-slide-toggle>
+            </div>
+
+            <button type='button'
+                style='height: 20%; width:50%; padding:3vw ;font-size: 6vw; font-weight: bold; border-radius:1vw'
+                id="next_btn" (click)="open2 = !open2; open3=!open3"> NEXT </button>
+            <!--<button type='button'  (click)="testblink()"> Test </button>-->
+        </div>
+
+        <div class="card" id="card3" [ngClass]="{'active': open3}">
+            <p style='text-align: center; margin: 2vh auto ; font-size: 5vw; color:white  '> How useful is the
+                exhibition? </p>
+            <div id="rating" class="radio-toolbar">
+
+                <input type="radio" id='r5' name="rating" value=5 checked>
+                <label for='r5' style='color: white; text-align: Left;font-size: 4vw; margin: 8vw'>Excellent</label>
+
+                <input type="radio" id='r4' name="rating" value=4>
+                <label for='r4' style='color: white; text-align: Left;font-size: 4vw; margin: 8vw'>Very Good</label>
+
+                <input type="radio" id='r3' name="rating" value=3>
+                <label for='r3' style='color:white; text-align: Left;font-size: 4vw; margin: 8vw'>Good</label>
+
+                <input type="radio" id='r2' name="rating" value=2>
+                <label for='r2' style='color:white; text-align: Left;font-size: 4vw; margin: 8vw'>Fair</label>
+
+                <input type="radio" id='r1' name="rating" value=1>
+                <label for='r1' style='color:white; text-align: Left;font-size: 4vw; margin: 8vw'>Poor</label>
+
+            </div>
+
+            <button type='button'
+                style='height: 20%; margin:4vh 0 0 0; width:50%; padding:3vw ;font-size: 6vw; font-weight: bold; border-radius:1vw'
+                id="next_btn" (click)="printvalue();open4 = !open4; open3=!open3"> NEXT </button>
+        </div>
+
+
+        <div class="card" style='margin: 4vh auto 4vh auto; ' id="card4" [ngClass]="{'active': open4}">
+            <p style='text-align: center; margin: 1vh -4vw 0 -4vw ; font-size: 4vw; color:white'>
+                Which areas of the exhibition would you like to explore further? We will be connecting you with
+                specialist from that field via email</p>
+
+            <ul class='container'>
+                <div style='display: block; '><span class='checkbox_header'>Co-Create</span></div>
+                <li><input type='checkbox' name='interest' value=1><span class='checkbox'>Co-Create (CLF Award winning
+                        papers)</span></li>
+                <li><input type='checkbox' name='interest' value=2><span class='checkbox'>Co-Create (SIMTech's Research
+                        Highlights)</span></li>
+
+                <div style='display: block; '><span class='checkbox_header'>Explore</span></div>
+                <li><input type='checkbox' name='interest' value=3><span class='checkbox'>Explore (Fong's Engineering
+                        and Manufacturing Pte Ltd)</span></li>
+                <li><input type='checkbox' name='interest' value=4><span class='checkbox'>Explore (Phillips
+                        Singapore)</span></li>
+
+                <div style='display: block; '><span class='checkbox_header'>Form</span></div>
+                <li><input type='checkbox' name='interest' value=5><span class='checkbox'>Form (SIMTech Methodologies
+                        and Frameworks on Digitalisation)</span></li>
+                <li><input type='checkbox' name='interest' value=6><span class='checkbox'>Form (SEAC Methodologies and
+                        Frameworks on Sustainability)</span></li>
+
+                <div style='display: block; margin:1vh 0 '><span class='checkbox_header'>Implement</span></div>
+                <li><input type='checkbox' name='interest' value=7><span class='checkbox'>Implement (Beckhoff Automation
+                        Pte Ltd)</span></li>
+                <li><input type='checkbox' name='interest' value=8><span class='checkbox'>Implement (InnoArk Pte
+                        Ltd)</span></li>
+                <li><input type='checkbox' name='interest' value=9><span class='checkbox'>Implement (Blum-Novotest
+                        GmbH)</span></li>
+
+                <!-- <li><input type='checkbox' name='interest' value=10><span class='checkbox'>Implement (Hexagon)</span>
+                </li>
+                <li><input type='checkbox' name='interest' value=11><span class='checkbox'>Implement (Schneider Electric
+                        Singapore Pte Ltd)</span></li>
+                <li><input type='checkbox' name='interest' value=12><span class='checkbox'>Implement (Singapore Contec
+                        Pte Ltd)</span></li>
+                <li><input type='checkbox' name='interest' value=13><span class='checkbox'>Implement (MMC Hardmetal
+                        (Thailand) Co., Ltd.)</span></li>
+                <li><input type='checkbox' name='interest' value=14><span class='checkbox'>Implement (OPEN MIND
+                        Technologies Asia Pacific Pte Ltd)</span></li>
+                <li><input type='checkbox' name='interest' value=15><span class='checkbox'>Implement (Walter AG
+                        Singapore Pte. Ltd)</span></li>
+                <li><input type='checkbox' name='interest' value=16><span class='checkbox'>Implement (EMUGE-FRANKEN
+                        Singapore Pte. Ltd.)</span></li>
+                <li><input type='checkbox' name='interest' value=17><span class='checkbox'>Implement (SATO Asia Pacific
+                        Pte. Ltd.)</span></li> -->
+
+            </ul>
+
+            <button type='button'
+                style='height: 20%; width:50%; padding:3vw ; margin:2vh 0;font-size: 6vw; font-weight: bold; border-radius:1vw'
+                id="next_btn" (click)="printvalue();open4 = !open4; open5=!open5"> NEXT </button>
+
+        </div>
+
+
+
+        <div class="card" id="card5" [ngClass]="{'active': open5}">
+            <p style='text-align: center; margin: 4vh auto ; font-size: 5vw; color:white  '> Do you have any feedback?
+            </p>
+            <div class="group">
+                <textarea name="feedback" cols="45" rows="5" placeholder="Feedback here" id="feedback"></textarea>
+            </div>
+            <button id="submit" (click)="apicall()" style='background-color:red;margin: 8vh 0'>SUBMIT</button>
+
+        </div>
+
+
+    </form>
+
+</body>
