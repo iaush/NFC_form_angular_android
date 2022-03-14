@@ -116,9 +116,8 @@ export class QuestionsComponent implements OnInit {
         this.formResponse = {};
 
         this.nfc.addNdefListener().subscribe(
+
             tag => {
-
-
                 let msg = this.nfc.bytesToString(tag.tag.ndefMessage[0].payload);
 
                 const inputnameElement = <HTMLInputElement>document.getElementById("name");
