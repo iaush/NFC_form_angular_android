@@ -8,7 +8,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { MatStepper } from '@angular/material/stepper';
 
-import { FormsModule } from '@angular/forms';
+
+
+
 
 @Component({
   selector: 'app-questions',
@@ -211,6 +213,20 @@ border-color: #333333;
 
 }
 
+.checkbox_header{
+color:white;
+font-size: 4vw;
+text-align: left;
+padding 3px 3px;
+vertical-align: middle;
+margin 2vh 0; 
+display: inline-block; 
+font-weight:bold;
+border-radius: 10px;
+border: 4px solid skyblue;
+}
+
+
 @keyframes slide{ 
 0%{ 
 transform: translateX(200%); 
@@ -236,8 +252,8 @@ opacity: 1;
  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head> 
 
-<body style='background-color: darkblue' > 
- <form> 
+<body style="background-image: url('assets/R2_Background.png'); background-size:cover" > 
+ <form > 
     <!--<div class='spinpop' id='spin' *ngIf="showspinner">
         <ion-spinner type='bubbles' color='danger'></ion-spinner>
     </div>
@@ -255,9 +271,9 @@ opacity: 1;
      <div class="card active" style ='font-weight: bold'id="card1" [ngClass]="{'active': open}"> 
      <h1 style='text-align: center; margin: 8vh auto 4vh auto; color: white'> Logo placeholder </h1>
 
-     <p style='text-align: center; margin: 2vh auto 0 auto;font-size: 8vw; color:lightskyblue '> <span style='color:white'>CLF</span> x <span style='color:white'>MPTC</span> 2022</p>
-     <p style='text-align: center; margin: 0 auto ; font-size: 8vw; color:lightskyblue  '> EXHIBITION </p>
-     <p style='text-align: center;  margin: 0 auto 8vh auto;font-size: 8vw; color:lightskyblue  '> FEEDBACK FORM </p>
+     <p style='text-align: center; margin: 2vh auto 0 auto;font-size: 8vw; color:#2096BA '> <span style='color:white'>CLF</span> x <span style='color:white'>MPTC</span> 2022</p>
+     <p style='text-align: center; margin: 0 auto ; font-size: 8vw; color:#2096BA  '> EXHIBITION </p>
+     <p style='text-align: center;  margin: 0 auto 8vh auto;font-size: 8vw; color:#2096BA  '> FEEDBACK FORM </p>
 
          <button type='button' 
          style='border-radius: 6vw; height: 20%; width:50%; padding:3vw ;font-size: 6vw; font-weight: bold'
@@ -283,7 +299,7 @@ opacity: 1;
              <input type="text" name="number" id="number" placeholder="Number" value='' > 
          </div> 
          <div class="group" style='text-align:left; margin: 0 4vw 8vw 4vw'> 
-             <mat-slide-toggle>I consent for my information blah blah.....</mat-slide-toggle>
+             <mat-slide-toggle>I agree and consent to share my personal data with SIMTech, A*STAR</mat-slide-toggle>
          </div> 
 
          <button type='button' style='height: 20%; width:50%; padding:3vw ;font-size: 6vw; font-weight: bold; border-radius:1vw' 
@@ -322,15 +338,23 @@ opacity: 1;
             Which areas of the exhibition would you like to explore further? We will be connecting you with specialist from that field via email</p>
              
             <ul class='container'>
+                <div style='display: block; '><span class='checkbox_header'>Co-Create</span></div>
                 <li><input type='checkbox' name='interest' value=1 ><span class='checkbox'>Co-Create (CLF Award winning papers)</span></li>
                 <li><input type='checkbox' name='interest' value=2><span class='checkbox'>Co-Create (SIMTech's Research Highlights)</span></li>
+                
+                <div style='display: block; '><span class='checkbox_header'>Explore</span></div>
                 <li><input type='checkbox' name='interest' value=3><span class='checkbox'>Explore (Fong's Engineering and Manufacturing Pte Ltd)</span></li>
                 <li><input type='checkbox' name='interest' value=4><span class='checkbox'>Explore (Phillips Singapore)</span></li>
+                
+                <div style='display: block; '><span class='checkbox_header'>Form</span></div>
                 <li><input type='checkbox' name='interest' value=5><span class='checkbox'>Form (SIMTech Methodologies and Frameworks on Digitalisation)</span></li>
                 <li><input type='checkbox' name='interest' value=6><span class='checkbox'>Form (SEAC Methodologies and Frameworks on Sustainability)</span></li>
+                
+                <div style='display: block; margin:1vh 0 '><span class='checkbox_header'>Implement</span></div>
                 <li><input type='checkbox' name='interest' value=7><span class='checkbox'>Implement (Beckhoff Automation Pte Ltd)</span></li>
                 <li><input type='checkbox' name='interest' value=8><span class='checkbox'>Implement (InnoArk Pte Ltd)</span></li>
                 <li><input type='checkbox' name='interest' value=9><span class='checkbox'>Implement (Blum-Novotest GmbH)</span></li>
+                
                 <li><input type='checkbox' name='interest' value=10><span class='checkbox'>Implement (Hexagon)</span></li>
                 <li><input type='checkbox' name='interest' value=11><span class='checkbox'>Implement (Schneider Electric Singapore Pte Ltd)</span></li>
                 <li><input type='checkbox' name='interest' value=12><span class='checkbox'>Implement (Singapore Contec Pte Ltd)</span></li>

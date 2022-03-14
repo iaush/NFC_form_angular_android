@@ -11,7 +11,8 @@ import { IonicModule } from '@ionic/angular';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-/*import { FormsModule } from '@angular/forms';*/
+/*import { FormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';*/
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
@@ -26,7 +27,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatStepperModule,
     MatSlideToggleModule,
     BrowserAnimationsModule,
-    /*FormsModule,*/ 
+    /*FormsModule,
+    FormGroup, 
+    FormControl, 
+    Validators, */
     MatCheckboxModule,
     
     IonicModule.forRoot()
