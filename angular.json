@@ -105,16 +105,22 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options":{
+            "browserTarget": "NFC_form:build",
+            "proxyConfig": "src/environments/proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "browserTarget": "NFC_form:build:production",
               "proxyConfig": "src/environments/proxy.conf.json"
             },
             "development": {
-              "browserTarget": "NFC_form:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
+              "browserTarget": "NFC_form:build:development",
+              "proxyConfig": "src/environments/proxy.conf.json"
+            },
+            "defaultConfiguration": "development"
+
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
