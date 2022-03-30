@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //GOOGLE_APPLICATION_CREDENTIALS : "secrets.json",
+  //SHEET_ID : "1z6qfdpBXcv8jxIR8vMxBaRN4Nvp5dUBVJaJUzlyqB-A"
 };
 
 /*

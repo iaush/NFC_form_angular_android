@@ -4,150 +4,254 @@ import { Component, OnInit } from '@angular/core';
 import { NFC, Ndef } from '@awesome-cordova-plugins/nfc/ngx';
 
 import { MatStepper } from '@angular/material/stepper';
-import {Http} from '@capacitor-community/http'
+import {Http} from '@capacitor-community/http';
 import { HttpResponse } from '@angular/common/http';
+import Swal from 'sweetalert2';
+import { NgModel } from '@angular/forms';
+//import { AndroidFullScreen } from '@awesome-cordova-plugins/android-full-screen/ngx';
+import { HttpClient } from '@angular/common/http';
+import { Capacitor } from '@capacitor/core';
+
+import { GoogleSheetsDbService } from 'ng-google-sheets-db';
+import { Observable } from 'rxjs';
+
+import { google } from 'googleapis';
 
 @Component({
     selector: 'app-questions',
     templateUrl: './questions.component.html',
-    styleUrls: ['./questions.component.scss']
+    styleUrls: ['./questions.component.scss'],
 })
 export class QuestionsComponent implements OnInit {
-
+    Uname=''
+    Uemail=''
     showspinner = false
 
+    agreecondition= false
+    agreecondition2 = false
 
+    public now: Date = new Date();
 
-    constructor(private nfc: NFC, private ndef: Ndef, service: QuestionsService) {
+    constructor(private nfc: NFC, private ndef: Ndef, service: QuestionsService, 
+        private http: HttpClient
+        ) {
+
         this._service = service;
+        
+    }
+
+    submitform = function(){
+
     }
 
 
-    doPost = async() =>{
-
-        var companies = ["", "Co-Create (CLF Award winning papers)",
-        "Co-Create (SIMTech's Research Highlights)",
-        "Explore (Fong's Engineering and Manufacturing Pte Ltd)",
-        "Explore (Phillips Singapore)",
-        "Form (SIMTech Methodologies and Frameworks on Digitalisation)",
-        "Form (SEAC Methodologies and Frameworks on Sustainability)",
-        "Implement (Beckhoff Automation Pte Ltd)",
-        "Implement (InnoArk Pte Ltd)",
-        "Implement (Blum-Novotest GmbH)",
-        "Implement (Hexagon)",
-        "Implement (Schneider Electric Singapore Pte Ltd)",
-        "Implement (Singapore Contec Pte Ltd)",
-        "Implement (MMC Hardmetal (Thailand) Co., Ltd.)",
-        "Implement (OPEN MIND Technologies Asia Pacific Pte Ltd)",
-        "Implement (Walter AG Singapore Pte. Ltd)",
-        "Implement (EMUGE-FRANKEN Singapore Pte. Ltd.)",
-        "Implement (SATO Asia Pacific Pte. Ltd.)"
-    ]
-
-        const inputnameElement = <HTMLInputElement>document.getElementById("name")
-        const inputemailElement = <HTMLInputElement>document.getElementById("email");
-        const inputnumberElement = <HTMLInputElement>document.getElementById("number");
-        const inputratingElement = <HTMLInputElement>document.querySelector('input[name="rating"]:checked')
-        const feedback=<HTMLTextAreaElement>document.getElementById('feedback')
+    doPost = function() {
+        return function(this: QuestionsComponent) {
+                var companies = ["Co-Create (CLF Award winning papers)",
+                "Co-Create (SIMTech's Research Highlights)",
+                "Explore (Fong's Engineering and Manufacturing Pte Ltd)",
+                "Explore (Phillips Singapore)",
+                "Form (SIMTech Methodologies and Frameworks on Digitalisation)",
+                "Form (SEAC Methodologies and Frameworks on Sustainability)",
+                "Implement (Beckhoff Automation Pte Ltd)",
+                "Implement (InnoArk Pte Ltd)",
+                "Implement (Blum-Novotest GmbH)",
+                "Implement (Hexagon)",
+                "Implement (Schneider Electric Singapore Pte Ltd)",
+                "Implement (Singapore Contec Pte Ltd)",
+                "Implement (MMC Hardmetal (Thailand) Co., Ltd.)",
+                "Implement (OPEN MIND Technologies Asia Pacific Pte Ltd)",
+                "Implement (Walter AG Singapore Pte. Ltd)",
+                "Implement (EMUGE-FRANKEN Singapore Pte. Ltd.)",
+                "Implement (SATO Asia Pacific Pte. Ltd.)"
+            ]
         
-        var array = []
-        var checkboxes = document.querySelectorAll('input[name="interest"]:checked')
+                const inputnameElement = <HTMLInputElement>document.getElementById("name");
+                const inputemailElement = <HTMLInputElement>document.getElementById("email");
+                const inputnumberElement = <HTMLInputElement>document.getElementById("number");
+                const inputratingElement = <HTMLInputElement>document.querySelector('input[name="rating"]:checked')
+                const feedback=<HTMLTextAreaElement>document.getElementById('feedback')
+                
+                var array = []
+                var checkboxes = document.querySelectorAll('input[name="interest"]:checked')
+        
+                var interest ={'entry.1600343198' : inputnameElement.value,
+                'entry.1331790656' : inputemailElement.value,
+                'entry.828903347' : inputnumberElement.value,
+                'entry.168112271' : inputratingElement.value,
+                'entry.1471824904': feedback.value,
+                'entry.685949873': 'No',
+                'entry.48743429': 'No',
 
-        interface LooseObject {
-            [key: string]: any
+                'entry.444312339': 'No',
+                'entry.307462702': 'No',
+                'entry.1041654158': 'No',
+                'entry.1592695906': 'No',
+                'entry.1868414664': 'No',
+                'entry.1116097888': 'No',
+                'entry.1620719190': 'No',
+
+                'entry.1334723321': 'No',
+                'entry.1842557720': 'No',
+                'entry.682454603': 'No',
+                'entry.47355250': 'No',
+                'entry.1626776898': 'No',
+                'entry.1970335812': 'No',
+                'entry.1443309497': 'No',
+                'entry.2065616329': 'No',
+                'entry.398787709': 'No',
+                'entry.1412750452': 'No',
+                'entry.1621987041': 'No',
+                'entry.464644701': 'No',
+                'entry.410551824': 'No'
+            }
+                
+        
+        
+        
+                /*entry.685949873: Form (SIMTech Methodologies and Frameworks on Digitalisation)
+                entry.48743429: Form (SEAC Methodologies and Frameworks on Sustainability)
+                entry.1334723321: Implement (Beckhoff Automation Pte Ltd)
+                entry.1842557720: Implement (InnoArk Pte Ltd)
+                entry.682454603: Implement (Blum-Novotest GmbH)
+                entry.47355250: Implement (Hexagon)
+                entry.1626776898: Implement (Schneider Electric Singapore Pte Ltd)
+                entry.1970335812: Implement (Singapore Contec Pte Ltd)
+                entry.1443309497: Implement (MMC Hardmetal (Thailand) Co., Ltd.)
+                entry.2065616329: Implement (OPEN MIND Technologies Asia Pacific Pte Ltd)
+                entry.398787709: Implement (Walter AG Singapore Pte. Ltd)
+                entry.1412750452: Implement (EMUGE-FRANKEN Singapore Pte. Ltd.)
+                entry.1621987041: Implement (SATO Asia Pacific Pte. Ltd.)*/
+        
+                
+                for (var i = 0; i < checkboxes.length; i++) {
+                    var Element = <HTMLInputElement>checkboxes[i]
+                    array.push(Element.value)
+                    
+                    //array.push(companies[parseInt(Element.value)])
+                }
+               
+                
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i] == '0'){interest['entry.685949873'] = 'Automation Assessment and Adoption(AAA)'}
+                    if (array[i] == '1'){interest['entry.48743429'] = 'Digital Transformation and Innovation Program (DTI)'}
+                    if (array[i] == '2'){interest['entry.1334723321'] = 'Implement (Beckhoff Automation Pte Ltd)'}
+                    if (array[i] == '3'){interest['entry.1842557720'] = 'Implement (InnoArk Pte Ltd)'}
+                    if (array[i] == '4'){interest['entry.682454603'] = 'Implement (Blum-Novotest GmbH)'}
+                    if (array[i] == '5'){interest['entry.47355250'] = 'Implement (Hexagon)'}
+                    if (array[i] == '6'){interest['entry.1626776898'] = 'Implement (Schneider Electric Singapore Pte Ltd)'}
+                    if (array[i] == '7'){interest['entry.1970335812'] = 'Implement (Singapore Contec Pte Ltd)'}
+                    if (array[i] == '8'){interest['entry.1443309497'] = 'Implement (MMC Hardmetal (Thailand) Co., Ltd.)'}
+                    if (array[i] == '9'){interest['entry.2065616329'] = 'Implement (OPEN MIND Technologies Asia Pacific Pte Ltd)'}
+                    if (array[i] == '10'){interest['entry.398787709'] = 'Implement (Walter AG Singapore Pte. Ltd)'}
+                    if (array[i] == '11'){interest['entry.1412750452'] = 'Implement (EMUGE-FRANKEN Singapore Pte. Ltd.)'}
+                    if (array[i] == '12'){interest['entry.1621987041'] = 'Implement (SATO Asia Pacific Pte. Ltd.)'}
+                    if (array[i] == '13'){interest['entry.464644701'] = 'Hurco (SE Asia) Pte Ltd'}
+                    if (array[i] == '14'){interest['entry.410551824'] = 'Makino Milling Machine Co. Ltd.'}
+
+                    if (array[i] == '15'){interest['entry.410551824'] = 'Energy Efficiency Monitoring and Analysis System'}
+                    if (array[i] == '16'){interest['entry.410551824'] = 'Green Compass'}
+                    if (array[i] == '17'){interest['entry.410551824'] = 'Life Cycle Assessment (LCA) & Life Cycle Costing (LCC)'}
+                    if (array[i] == '18'){interest['entry.410551824'] = 'Operation & Technology Roadmap (OTR) Methodology'}
+                    if (array[i] == '19'){interest['entry.410551824'] = 'Resource Efficiency Monitoring and Analysis Platform (REMAP)'}
+                    if (array[i] == '20'){interest['entry.410551824'] = 'Smart Industry Readiness Index (SIRI) Framework'}
+                    if (array[i] == '21'){interest['entry.410551824'] = 'Smart System'}
+                /*entry.685949873: Form (SIMTech Methodologies and Frameworks on Digitalisation)
+                entry.48743429: Form (SEAC Methodologies and Frameworks on Sustainability)
+                entry.1334723321: Implement (Beckhoff Automation Pte Ltd)
+                entry.1842557720: Implement (InnoArk Pte Ltd)
+                entry.682454603: Implement (Blum-Novotest GmbH)
+                entry.47355250: Implement (Hexagon)
+                entry.1626776898: Implement (Schneider Electric Singapore Pte Ltd)
+                entry.1970335812: Implement (Singapore Contec Pte Ltd)
+                entry.1443309497: Implement (MMC Hardmetal (Thailand) Co., Ltd.)
+                entry.2065616329: Implement (OPEN MIND Technologies Asia Pacific Pte Ltd)
+                entry.398787709: Implement (Walter AG Singapore Pte. Ltd)
+                entry.1412750452: Implement (EMUGE-FRANKEN Singapore Pte. Ltd.)
+                entry.1621987041: Implement (SATO Asia Pacific Pte. Ltd.)*/
+        
+                }
+                
+                
+                
+                var interest2 ={'entry.2070480692' : inputnameElement.value,
+                'entry.1485450992_hour' : new Date().getHours(),
+                'entry.1485450992_minute' : new Date().getMinutes(),
+                'entry.1331402498_year' : new Date().getFullYear(),
+                'entry.1331402498_month' : new Date().getMonth()+1,
+                'entry.1331402498_day' : new Date().getDate(),
+                'entry.1684285223' : "Feedback Form",
+                                }
+
+
+                var options2 ={
+                    url:'https://docs.google.com/forms/d/e/1FAIpQLSeaQBxI5CdzTkRnUARfmS02ByQywaCuYoFWtslUhpJbc7YUNg/formResponse',
+                    headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+                    data : interest2
+                }
+
+                
+                Http.post(options2).then(data => {
+                    console.log("Date sent")
+                  })
+                  .catch(error => {
+                    console.log("Time logging Error")
+                  })
+
+
+                
+                var options ={
+                    url:'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdkv02jQMeGMT3MaWtLPTK66Ze-VhiTXHn7RaxXuC69NbwNhg/formResponse',
+                    headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+                    data : interest
+                }
+        
+                
+
+                 Http.post(options).then(data => {
+                    
+                    Swal.fire({
+                        html:'</p> NAME : ' + String(inputnameElement.value) + '<br>' + 
+                        'EMAIL : ' + String(inputemailElement.value) +'<br>' 
+                        +'Please collect .....</p>',
+                        title: 'Submission recorded',
+                        text: '</p> NAME : ' + String(inputnameElement.value) + '<br>' + 
+                        'EMAIL : ' + String(inputemailElement.value) +'<br>' 
+                        +'Please collect .....</p>',
+                        icon: 'success',
+                      })
+        
+                    //alert('Submission recorded')
+                    //console.log(data.data); // data received by server
+                    //console.log(data.headers);
+                    var form1= <HTMLFormElement> document.getElementById("form1")
+                    form1.reset();
+                    this.agreecondition=false
+                    this.agreecondition2=false
+                
+                  })
+                  .catch(error => {
+                
+                    Swal.fire({
+                        html:'</p> NAME : ' + String(inputnameElement.value) + '<br>' + 
+                        'EMAIL : ' + String(inputemailElement.value) +'<br>' 
+                        +'Please collect .....</p>',
+                        title: 'Form Error',
+                        text: 'NAME : ' + String(inputnameElement.value) + '</br>' + 
+                        'EMAIL : ' + String(inputemailElement.value) +'</br>' 
+                        +'Please collect .....',
+                        icon: 'error',
+                      })
+                    //console.log(error);
+                    var form1= <HTMLFormElement> document.getElementById("form1")
+                    form1.reset();
+                    this.agreecondition=false
+                    this.agreecondition2=false
+
+                  })
         }
-
-
-        //var interest: LooseObject ={'entry.1600343198' : inputnameElement.value,
-        //'entry.1331790656' : inputemailElement.value,
-        //'entry.828903347' : inputnumberElement.value,
-        //'entry.168112271' : inputratingElement.value,
-        //'entry.1471824904': feedback.value}
-        var string_vals='{'
-
-        //var string_vals=''
-        for (var i = 0; i < checkboxes.length; i++) {
-            var Element = <HTMLInputElement>checkboxes[i]
-            //interest['entry.1474292905']= companies[parseInt(Element.value)]
-            //interest=Object.assign({'entry.1474292905':companies[parseInt(Element.value)]},interest)
-            string_vals=string_vals.concat('"entry.1474292905":')
-            string_vals=string_vals.concat( '\"' + String(companies[parseInt(Element.value)])+'\"' + ',')
-            array.push(Element.value)
-            //array.push(companies[parseInt(Element.value)])
-        }
-        string_vals=string_vals.slice(0,-1)
-        string_vals=string_vals.concat('}')
-
-        //
-        console.log(string_vals)
-
-        string_vals=JSON.stringify(string_vals)
-        var interest = JSON.parse(JSON.parse(string_vals))
-        console.log(interest)
-
-        interest['entry.1600343198'] = inputnameElement.value,
-        interest['entry.1331790656'] = inputemailElement.value,
-        interest['entry.828903347'] = inputnumberElement.value,
-        interest['entry.168112271'] = inputratingElement.value,
-        interest['entry.1471824904'] = feedback.value
-        
-        
-        //console.log(interest)
-        //interest['entry.1474292905']=array
-        
-        var body = new FormData();
-        
-        
-        body.append('entry.1600343198', inputnameElement.value);
-        
-        
-        body.append('entry.1331790656', inputemailElement.value);
-        
-       
-        body.append('entry.828903347', inputnumberElement.value);
-        
-        
-        body.append('entry.168112271', inputratingElement.value);
-        
-        
-        body.append('entry.1471824904', feedback.value);
-        
-    //console.log("counting start now");
-    for (let i = 0; i < array.length; i++) {
-      body.append('entry.1474292905', companies[parseInt(array[i])]);
-    }
-
-    var test = JSON.stringify(Object.fromEntries(body.entries()));
-
-    //console.log(test)
-
-        var options ={
-            url:'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdkv02jQMeGMT3MaWtLPTK66Ze-VhiTXHn7RaxXuC69NbwNhg/formResponse',
-            headers:{'Content-Type': 'application/x-www-form-urlencoded'},
-            data : interest
-        }
-
-        
-        await Http.post(options).then(data => {
-
-            console.log(data.status);
-            console.log(data.data); // data received by server
-            console.log(data.headers);
-        
-          })
-          .catch(error => {
-        
-            console.log(error.status);
-            console.log(error.error); // error message as string
-            console.log(error.headers);
-        
-          })
-
-        //const response: HttpResponse<any> = await Http.post(options);
+      }
     
-
-    };
-
 
 
     nfcread() {
@@ -158,16 +262,23 @@ export class QuestionsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.startNFCListener();
+
+    
+
+        if (Capacitor.isNativePlatform()==false){ ///change here
+            console.log('Not native')
+            this.submitform = this.apicall()        
+        } 
+        else {
+            console.log('Native')
+            this.submitform = this.doPost()
+            this.startNFCListener();
+        }
+        //this.startNFCListener();
+        //this.getMobileOperatingSystem()
     }
 
-    spin() {
-        this.showspinner = true
-        setTimeout(() => {
-            this.showspinner = false
-        }, 1000);
-    }
-
+   
     printvalue() {
 
         const inputnameElement = <HTMLInputElement>document.getElementById("name");
@@ -190,23 +301,50 @@ export class QuestionsComponent implements OnInit {
 
     _service: QuestionsService;
 
+
+
     formResponse= {
         name: "DEFAULT",
         email: "DEFAULT",
         contact: "DEFAULT",
         useful: 0,
         explore: ["Co-Create (CLF Award winning papers)"],
-        improve: "DEFAULT"
+        improve: "DEFAULT",
+        date_year : new Date().getFullYear(),
+        date_month : new Date().getMonth(),
+        date_day : new Date().getDate(),
+        date_hour : new Date().getHours(),
+        date_min : new Date().getMinutes(),
+
     };
 
 
+    apicall= function() {
+        return function(this: QuestionsComponent) {
 
+        const inputnameElement = <HTMLInputElement>document.getElementById("name");
+        this.formResponse.name= inputnameElement.value
 
+        const inputemailElement = <HTMLInputElement>document.getElementById("email");
+        this.formResponse.email= inputemailElement.value
 
-    apicall() {
+        const inputnumberElement = <HTMLInputElement>document.getElementById("number");
+        this.formResponse.contact= inputnumberElement.value
+        
         const inputratingElement = <HTMLInputElement>document.querySelector('input[name="rating"]:checked');
         this.formResponse.useful  = parseInt(inputratingElement.value);
         //this.formResponse.useful  = 3;
+
+        const feedback=<HTMLTextAreaElement>document.getElementById('feedback')
+        this.formResponse.improve  = feedback.value
+
+        this.formResponse.date_year = new Date().getFullYear(),
+        this.formResponse.date_month = new Date().getMonth(),
+        this.formResponse.date_day = new Date().getDate(),
+        this.formResponse.date_hour = new Date().getHours(),
+        this.formResponse.date_min = new Date().getMinutes()
+        
+       
         
         var array = [];
         var checkboxes = document.querySelectorAll('input[name="interest"]:checked');
@@ -216,9 +354,18 @@ export class QuestionsComponent implements OnInit {
         }
         this.formResponse.explore = array;
     
-        console.log(`formResponse: ${this.formResponse}`)
+        //console.log(`formResponse: ${this.formResponse}`)
         this._service.postForm(this.formResponse);
-    }
+
+        var form1= <HTMLFormElement> document.getElementById("form1")
+        form1.reset();
+        this.agreecondition=false
+        this.agreecondition2=false
+
+        }
+      }
+        
+    
 
     startNFCListener() {
         this.formResponse= {
@@ -227,7 +374,12 @@ export class QuestionsComponent implements OnInit {
             contact: "DEFAULT",
             useful: 0,
             explore: ["Co-Create (CLF Award winning papers)"],
-            improve: "DEFAULT"
+            improve: "DEFAULT",
+            date_year : new Date().getFullYear(),
+            date_month : new Date().getMonth(),
+            date_day : new Date().getDate(),
+            date_hour : new Date().getHours(),
+            date_min : new Date().getMinutes(),
         };
 
         this.nfc.addNdefListener().subscribe(
@@ -237,11 +389,13 @@ export class QuestionsComponent implements OnInit {
 
                 const inputnameElement = <HTMLInputElement>document.getElementById("name");
                 inputnameElement.value = msg.split('FN:')[1].split('ORG')[0];
+                this.Uname = inputnameElement.value
                 this.formResponse.name=inputnameElement.value;
                 //this.formResponse.name="PLACEHOLDER";
 
                 const inputemailElement = <HTMLInputElement>document.getElementById("email");
                 inputemailElement.value = msg.split('EMAIL:')[1].split('ADR:')[0];
+                this.Uemail = inputemailElement.value
                 this.formResponse.email= inputemailElement.value;
                 //this.formResponse.email= "PLACEHOLDER";
 
@@ -275,7 +429,7 @@ export class QuestionsComponent implements OnInit {
                 //alert(msg)
             },
             err => {
-                alert('Error reading tag ' + err)
+                console.log('Error reading tag ' + err)
             })
     }
 
@@ -288,12 +442,22 @@ export class QuestionsComponent implements OnInit {
 
     radioData = 5;
 
-    goBack(stepper: MatStepper) {
-        stepper.previous();
-    }
 
-    goForward(stepper: MatStepper) {
-        stepper.next();
-    }
+
+    
+    getServerSideProps() {
+        //async()=>{
+    //const auth =  await google.auth.getClient({ scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'] });
+    //const sheets = google.sheets({ version: 'v4', auth });
+    //const range = `C:C`;
+    //const response = await sheets.spreadsheets.values.get({
+      //spreadsheetId: '1z6qfdpBXcv8jxIR8vMxBaRN4Nvp5dUBVJaJUzlyqB-A',
+      //range,
+    //});
+    //const reply = response.data.values;
+    //console.log(reply)
+    //}
+     }
+
 
 }

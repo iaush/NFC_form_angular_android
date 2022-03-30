@@ -4,8 +4,13 @@
 
 ::ng-deep .mat-slide-toggle-content {
     white-space: normal !important;
+    line-height: 3vw;
   }
 
 ::ng-deep .mat-checkbox-frame {
     border-color: white
   }
+
+::ng-deep body.swal2-height-auto {
+  height: 100vh !important;
+}

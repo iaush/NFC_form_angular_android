@@ -14,8 +14,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 // import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+//import { AndroidFullScreen } from '@awesome-cordova-plugins/android-full-screen/ngx';
 import { HttpClientModule } from '@angular/common/http';
+import { Capacitor } from '@capacitor/core';
+
 
 
 @NgModule({
@@ -30,16 +32,20 @@ import { HttpClientModule } from '@angular/common/http';
     MatSlideToggleModule,
     BrowserAnimationsModule,
     FormsModule,
+    //AndroidFullScreen,
     /*FormGroup, 
     FormControl, 
     Validators, */
     MatCheckboxModule,
     HttpClientModule,
+
     
     IonicModule.forRoot()
   ],
   providers: [NFC,
-    Ndef
+    Ndef,
+    
+    
     ],
   bootstrap: [AppComponent]
 })
