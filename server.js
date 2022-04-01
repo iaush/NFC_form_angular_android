@@ -10,6 +10,7 @@ app.get("/*", function(req,res){
 })
 
 app.use('https://clf-form.herokuapp.com/forms', proxy('https://docs.google.com/forms'))
+app.use('/forms', proxy('https://docs.google.com/forms'))
 
 app.listen(process.env.PORT || 8080);
 
