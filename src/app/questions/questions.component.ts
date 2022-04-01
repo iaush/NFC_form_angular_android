@@ -35,6 +35,17 @@ export class QuestionsComponent implements OnInit {
   subscription: any;
   email_exist = false;
 
+  open: boolean = true;
+  open2: boolean = false;
+  open3: boolean = false;
+  open4: boolean = false;
+  open5: boolean = false;
+  open6: boolean = false;
+
+  radioData = 5;
+
+  showspinner=false
+
   constructor(
     private nfc: NFC,
     private ndef: Ndef,
@@ -278,6 +289,9 @@ export class QuestionsComponent implements OnInit {
         data: interest,
       };
 
+
+      this.showspinner=true
+
       this.subscription = this.check_firebase().subscribe((re) => {
         //console.log(`re2: ${re}`);
         if (re.length > 0) {
@@ -312,7 +326,9 @@ export class QuestionsComponent implements OnInit {
               title: 'Submission recorded',
               allowOutsideClick: false,
               icon: 'success',
-            })}
+            })
+          this.showspinner=false
+          }
             else {
                 Swal.fire({
                     html:
@@ -323,6 +339,7 @@ export class QuestionsComponent implements OnInit {
                     allowOutsideClick: false,
                     icon: 'warning',
                   })
+                  this.showspinner=false
             };
 
             var form1 = <HTMLFormElement>document.getElementById('form1');
@@ -330,6 +347,8 @@ export class QuestionsComponent implements OnInit {
             this.agreecondition = false;
             this.agreecondition2 = false;
             this.email_exist=false;
+            this.open = !this.open;
+            this.open5 = !this.open;
           })
           .catch((error) => {
             if (this.email_exist == false){
@@ -341,7 +360,9 @@ export class QuestionsComponent implements OnInit {
                   title: 'Form error',
                   allowOutsideClick: false,
                   icon: 'error'
-                })}
+                })
+                this.showspinner=false
+              }
                 else {
                     Swal.fire({
                         html:
@@ -352,6 +373,7 @@ export class QuestionsComponent implements OnInit {
                         allowOutsideClick: false,
                         icon: 'error',
                       })
+                      this.showspinner=false
                     }
             //console.log(error);
             var form1 = <HTMLFormElement>document.getElementById('form1');
@@ -359,6 +381,8 @@ export class QuestionsComponent implements OnInit {
             this.agreecondition = false;
             this.agreecondition2 = false;
             this.email_exist=false;
+            this.open = !this.open;
+            this.open5 = !this.open;
           });
       });
     };
@@ -471,6 +495,8 @@ export class QuestionsComponent implements OnInit {
       // this.check_firebase()
       // this.store_firebase()
 
+      this.showspinner=true
+
       this.subscription = this.check_firebase().subscribe((re) => {
         //console.log(`re1: ${re}`);
         if (re.length > 0) {
@@ -484,12 +510,15 @@ export class QuestionsComponent implements OnInit {
         }
         this.subscription.unsubscribe();
         this.store_firebase();
-        this._service.postForm(this.formResponse);
+        
+        this._service.postForm(this.formResponse, this);
 
         var form1 = <HTMLFormElement>document.getElementById('form1');
         form1.reset();
         this.agreecondition = false;
         this.agreecondition2 = false;
+        //this.open = !this.open;
+        //this.open5 = !this.open;
       });
     };
   };
@@ -564,12 +593,4 @@ export class QuestionsComponent implements OnInit {
     );
   }
 
-  open: boolean = true;
-  open2: boolean = false;
-  open3: boolean = false;
-  open4: boolean = false;
-  open5: boolean = false;
-  open6: boolean = false;
-
-  radioData = 5;
 }

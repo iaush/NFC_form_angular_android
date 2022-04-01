@@ -1,15 +1,20 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import Swal from 'sweetalert2';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionsService {
 
+
+
   constructor(private http: HttpClient) { }
 
-  postForm(_data: any) {
+  postForm(_data: any, origin: any) {
 
     var companies = [
         "Automation Assessment and Adoption(AAA)", //0
@@ -98,7 +103,11 @@ export class QuestionsService {
           title: 'Submission recorded',
           allowOutsideClick: false,
           icon: 'success',
-        })}
+        })
+        origin.open = !origin.open;
+        origin.open5 = !origin.open;
+        origin.showspinner=false
+      }
         else {
             Swal.fire({
                 html:
@@ -109,9 +118,10 @@ export class QuestionsService {
                 allowOutsideClick: false,
                 icon: 'warning'
               })
+              origin.showspinner=false
+              origin.open = !origin.open;
+              origin.open5 = !origin.open;
             }
-
-  
     },
       e=>{
 
@@ -124,7 +134,11 @@ export class QuestionsService {
               title: 'Form error',
               allowOutsideClick: false,
               icon: 'error'
-          })}
+          })
+          origin.showspinner=false
+          origin.open = !origin.open;
+        origin.open5 = !origin.open;
+        }
           else {
               Swal.fire({
                   html:
@@ -135,10 +149,14 @@ export class QuestionsService {
                     allowOutsideClick: false,
                     icon: 'error'
                 })
+                origin.showspinner=false
+                origin.open = !origin.open;
+              origin.open5 = !origin.open;
               }
 
         //console.log(e)
       }
+
     );
 
 

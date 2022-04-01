@@ -1,4 +1,6 @@
 <head>
+    <title>CLFxMPTC2022 Feedback form</title>
+    <link rel="icon" href="assets/logo.png" type="image/icon type">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="sweetalert2.all.min.js"></script>
     <script src="https://apis.google.com/js/api.js"></script>
@@ -7,10 +9,10 @@
 <body style="background-image: url('assets/BAckground with Merlion-min.png'); background-position: center top;
     background-size: 100% 100%;" > 
     <form id="form1"> 
-       <!--<div class='spinpop' id='spin' *ngIf="showspinner">
-           <ion-spinner type='bubbles' color='danger'></ion-spinner>
+       <div class='spinpop' id='spin' *ngIf="showspinner">
+           <ion-spinner type='crescent' color='warning' ></ion-spinner>
        </div>
-       <h1 style='text-align: center; margin: 20% auto 10% auto'> Some words to descibe </h1>
+       <!--<h1 style='text-align: center; margin: 20% auto 10% auto'> Some words to descibe </h1>
        <div class='progress_bar'>
            <mat-horizontal-stepper #stepper labelPosition="bottom" >
                <mat-step label='Particulars' ></mat-step>
@@ -229,7 +231,7 @@
                    <textarea name="feedback" cols="45" rows="5" id="feedback"
                     placeholder="Feedback here"></textarea> 
                </div>
-               <button id="submit" style='background-color:red;margin: 8vh 0' (click)="submitform(); open = !open; open5=!open5"  >SUBMIT</button>
+               <button id="submit" style='background-color:red;margin: 8vh 0' (click)="submitform(); "  >SUBMIT</button>
            
            </div>
     </form> 
