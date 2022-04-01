@@ -119,8 +119,7 @@
               "browserTarget": "NFC_form:build:development",
               "proxyConfig": "src/environments/proxy.conf.json"
             },
-            "defaultConfiguration": "development"
-
+            "defaultConfiguration": "production"
           }
         },
         "extract-i18n": {
