@@ -18,6 +18,21 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
 import { Capacitor } from '@capacitor/core';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth'
+
+
+// Your web app's Firebase configuration
+const config = {
+  apiKey: "AIzaSyCfaHRfsnvB4Z_vVtzGdwHGmaXosY77Cng",
+  authDomain: "clfapp.firebaseapp.com",
+  projectId: "clfapp",
+  storageBucket: "clfapp.appspot.com",
+  messagingSenderId: "184153021355",
+  appId: "1:184153021355:web:0b0e87beb7d057e246d0ee"
+};
 
 
 @NgModule({
@@ -38,9 +53,13 @@ import { Capacitor } from '@capacitor/core';
     Validators, */
     MatCheckboxModule,
     HttpClientModule,
-
+    IonicModule.forRoot(),
+    AngularFireModule.initializeApp(config),
+    AngularFireModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
     
-    IonicModule.forRoot()
+
   ],
   providers: [NFC,
     Ndef,

@@ -48,7 +48,7 @@ export class QuestionsService {
 
     body.append('entry.1471824904', _data.improve);
 
-    console.log(`_data.name: ${_data.name}`);
+    //console.log(`_data.name: ${_data.name}`);
     //console.log("counting start now");
     for (let i = 0; i < _data.explore.length; i++) {
       body.append('entry.1474292905', companies[parseInt(_data.explore[i])]);
@@ -56,7 +56,7 @@ export class QuestionsService {
       //body.append('entry.1474292905', _data.explore[i]);
     }
 
-    console.log(`body: ${body}`);
+    //console.log(`body: ${body}`);
 
     // body.append('entry.792628995',_data.name);
     // body.append('entry.545015490',_data.email);
@@ -84,38 +84,56 @@ export class QuestionsService {
       responseType: 'text' as const,
     };
 
+    
 
     this.http.post(formURL, body, options).subscribe(r => {
 
 
-      Swal.fire({
-        html:'</p> NAME : ' + String(_data.name) + '<br>' + 
-        'EMAIL : ' + String(_data.email) +'<br>' 
-        +'Please collect .....</p>',
-        title: 'Submission recorded',
-        text: '</p> NAME : ' + String(_data.name) + '<br>' + 
-        'EMAIL : ' + String(_data.email) +'<br>' 
-        +'Please collect .....</p>',
-        icon: 'success',
-      })
+      if (_data.email_exist == false){
+        Swal.fire({
+          html:
+            '</p> NAME : ' + String(_data.name) + '<br>' + 'EMAIL : ' +
+            String(_data.email) +'<br>' +
+            '<h2>Thank you! Please collect a free mask the counter</h2></p>',
+          title: 'Submission recorded',
+          icon: 'success',
+        })}
+        else {
+            Swal.fire({
+                html:
+                  '</p> NAME : ' + String(_data.name) + '<br>' + 'EMAIL : ' +
+                  String(_data.email) +'<br>' +
+                  '<h2>User already recorded. Thank you!</h2></p>',
+                title: 'Submission recorded',
+                icon: 'warning'
+              })
+            }
 
-      console.log(r)
-      console.log(_data.date)
+  
     },
       e=>{
 
-        Swal.fire({
-          html:'</p> NAME : ' + String(_data.name) + '<br>' + 
-          'EMAIL : ' + String(_data.email) +'<br>' 
-          +'Please collect .....</p>',
-          title: 'Form Error',
-          text: 'NAME : ' + String(_data.name) + '</br>' + 
-          'EMAIL : ' + String(_data.email) +'</br>' 
-          +'Please collect .....',
-          icon: 'error',
-        })
+        if (_data.email_exist == false){
+          Swal.fire({
+            html:
+              '</p> NAME : ' + String(_data.name) + '<br>' + 'EMAIL : ' +
+              String(_data.email) +'<br>' +
+              '<h2>Please collect .....</h2></p>',
+              title: 'Form error',
+              icon: 'error'
+          })}
+          else {
+              Swal.fire({
+                  html:
+                    '</p> NAME : ' + String(_data.name) + '<br>' + 'EMAIL : ' +
+                    String(_data.email) +'<br>' +
+                    '<h2>User already recorded. Thank you!</h2></p>',
+                    title: 'Form error',
+                    icon: 'error'
+                })
+              }
 
-        console.log(e)
+        //console.log(e)
       }
     );
 
@@ -134,7 +152,7 @@ export class QuestionsService {
 
     this.http.post(formURL2, body2, options).subscribe(r => {
 
-      console.log('Date sent')
+      console.log('Date logging sent')
       console.log(_data.date)
     },
       e=>{
