@@ -94,8 +94,9 @@ export class QuestionsService {
           html:
             '</p> NAME : ' + String(_data.name) + '<br>' + 'EMAIL : ' +
             String(_data.email) +'<br>' +
-            '<h2>Thank you! Please collect a free mask the counter</h2></p>',
+            '<h2>Thank you for your response! Please retain this pop-up and approach our staff to collect your free mask</h2></p>',
           title: 'Submission recorded',
+          allowOutsideClick: false,
           icon: 'success',
         })}
         else {
@@ -103,8 +104,9 @@ export class QuestionsService {
                 html:
                   '</p> NAME : ' + String(_data.name) + '<br>' + 'EMAIL : ' +
                   String(_data.email) +'<br>' +
-                  '<h2>User already recorded. Thank you!</h2></p>',
+                  '<h2>Thank you again for your response! This response will overwrite your previous response</h2></p>',
                 title: 'Submission recorded',
+                allowOutsideClick: false,
                 icon: 'warning'
               })
             }
@@ -120,6 +122,7 @@ export class QuestionsService {
               String(_data.email) +'<br>' +
               '<h2>Please collect .....</h2></p>',
               title: 'Form error',
+              allowOutsideClick: false,
               icon: 'error'
           })}
           else {
@@ -129,6 +132,7 @@ export class QuestionsService {
                     String(_data.email) +'<br>' +
                     '<h2>User already recorded. Thank you!</h2></p>',
                     title: 'Form error',
+                    allowOutsideClick: false,
                     icon: 'error'
                 })
               }

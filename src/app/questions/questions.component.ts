@@ -308,8 +308,9 @@ export class QuestionsComponent implements OnInit {
               html:
                 '</p> NAME : ' + String(inputnameElement.value) + '<br>' + 'EMAIL : ' +
                 String(inputemailElement.value) +'<br>' +
-                '<h2>Thank you! Please collect a free mask the counter</h2></p>',
+                '<h2>Thank you for your response! Please retain this pop-up and approach our staff to collect your free mask</h2></p>',
               title: 'Submission recorded',
+              allowOutsideClick: false,
               icon: 'success',
             })}
             else {
@@ -317,8 +318,9 @@ export class QuestionsComponent implements OnInit {
                     html:
                       '</p> NAME : ' + String(inputnameElement.value) + '<br>' + 'EMAIL : ' +
                       String(inputemailElement.value) +'<br>' +
-                      '<h2>User already recorded. Thank you!</h2></p>',
+                      '<h2>Thank you again for your response! This response will overwrite your previous response</h2></p>',
                     title: 'Submission recorded',
+                    allowOutsideClick: false,
                     icon: 'warning',
                   })
             };
@@ -337,6 +339,7 @@ export class QuestionsComponent implements OnInit {
                     String(inputemailElement.value) +'<br>' +
                     '<h2>Please collect .....</h2></p>',
                   title: 'Form error',
+                  allowOutsideClick: false,
                   icon: 'error'
                 })}
                 else {
@@ -346,6 +349,7 @@ export class QuestionsComponent implements OnInit {
                           String(inputemailElement.value) +'<br>' +
                           '<h2>User already recorded. Thank you!</h2></p>',
                         title: 'Form error',
+                        allowOutsideClick: false,
                         icon: 'error',
                       })
                     }
@@ -513,7 +517,7 @@ export class QuestionsComponent implements OnInit {
         const inputnameElement = <HTMLInputElement>(
           document.getElementById('name')
         );
-        inputnameElement.value = msg.split('FN:')[1].split('ORG')[0];
+        inputnameElement.value = msg.split('FN:')[1].split('TEL;')[0];
         this.Uname = inputnameElement.value;
         this.formResponse.name = inputnameElement.value;
         //this.formResponse.name="PLACEHOLDER";
@@ -521,7 +525,7 @@ export class QuestionsComponent implements OnInit {
         const inputemailElement = <HTMLInputElement>(
           document.getElementById('email')
         );
-        inputemailElement.value = msg.split('EMAIL:')[1].split('ADR:')[0];
+        inputemailElement.value = msg.split('EMAIL;WORK:')[1].split('ORG')[0];
         this.Uemail = inputemailElement.value;
         this.formResponse.email = inputemailElement.value;
         //this.formResponse.email= "PLACEHOLDER";
@@ -529,7 +533,7 @@ export class QuestionsComponent implements OnInit {
         const inputnumberElement = <HTMLInputElement>(
           document.getElementById('number')
         );
-        inputnumberElement.value = msg.split('TEL:')[1].split('END:')[0];
+        inputnumberElement.value = msg.split('TEL;WORK:')[1].split('EMAIL')[0];
         this.formResponse.contact = inputnumberElement.value;
         // this.formResponse.contact= "PLACEHOLDER";
 
