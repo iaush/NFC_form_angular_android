@@ -397,6 +397,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    document.title="Feedback form"
     if (Capacitor.isNativePlatform() == false) { //false for normal
       ///change here
       console.log('Not native');
