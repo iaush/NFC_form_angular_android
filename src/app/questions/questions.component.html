@@ -37,21 +37,21 @@
         
         <div class="card" style='background-color: rgb(252, 252, 252); border-radius: 1vw;  border: 1px solid' id="card1" [ngClass]="{'active': open2}"> 
             
-           <div class="group" style='margin: 4vw auto'> 
+           <div class="group" style='margin: 4vh auto'> 
                 <label style='font-size: 4vw'> Your Name </label>
                 <input type="text" class='inputtext' name="name" id="name" placeholder="Name required" [(ngModel)]="Uname" [ngClass]="{'redb':!Uname}" > 
             </div> 
-            <div class="group" style='margin: 4vw auto' > 
+            <div class="group" style='margin: 4vh auto' > 
                 <label style='font-size: 4vw'> Your Email </label>
                 <input type="email" class='inputtext' name="email" id="email" placeholder="Email required" [(ngModel)]="Uemail" [ngClass]="{'redb':!Uemail}"> 
             </div> 
-            <div class="group" style='margin: 4vw auto'> 
+            <div class="group" style='margin: 4vh auto'> 
                 <label style='font-size: 4vw'> Contact Number </label>
                 <input type="text"  class='inputtext' name="number" id="number" placeholder="Number" value='' > 
             </div> 
-            <div class="group" style='text-align:left; margin: 4vw 4vw 8vw 4vw' size="large"> 
+            <div class="group" style='text-align:left; margin: 4vh 4vw 8vw 4vh' size="large"> 
                 <mat-slide-toggle [checked]="agreecondition" (change)="agreecondition=!agreecondition">
-                    <span style='font-size: 3vw; color: maroon'>I agree and consent to share my personal data with SIMTech, A*STAR</span>
+                    <span style='font-size: 3vw; color: maroon'>I agree and consent to share my personal data with SIMTech, A*STAR.</span>
                 </mat-slide-toggle>
             </div> 
             <button type='button'   
@@ -90,8 +90,8 @@
            
            <div class="card" style='margin: 4vh auto 4vh auto; '
            id="card4" [ngClass]="{'active': open4}" >
-               <p style='text-align: center; margin: 1vh 0 0 0 ; font-size: 4vw; color:white'>
-               Which areas of the exhibition would you like to explore further? We will be connecting you with specialist from that field via email</p>
+               <p style='text-align: justify; margin: 1vh 0 0 0 ; font-size: 5vw; color:white'>
+               Which areas of the exhibition would you like to explore further? We will be connecting you with specialist from that field via email.</p>
                 
                <ul >
                    <!--<div style='display: block; margin:0.5vh 0'><span class='checkbox_header'>Co-Create</span></div>
@@ -137,7 +137,7 @@
                     </li>
 
                     <li><input id='c21' type='checkbox' name='interest' value=21>
-                        <label for ='c21'style='color:white; '> <img src="assets/logo.png"/> <span>Smart System <sup>TM</sup> Framework (SSF) </span> </label>
+                        <label for ='c21'style='color:white; '> <img src="assets/logo.png"/> <span>Smart System Framework<sup>TM</sup> (SSF<sup>TM</sup>) </span> </label>
                     </li>
                    
                    <div style='display: block; margin:0.5vh 0'><span class='checkbox_header'>Implement</span></div>
@@ -154,15 +154,15 @@
                     </li>
 
                     <li><input id='c7' type='checkbox' name='interest' value=7>
-                        <label for ='c7'style='color:white; '> <img src="assets/contec.png"/><span>Singapore Contec Pte Ltd </span> </label>
+                        <label for ='c7'style='color:white; '> <img src="assets/contec.png"/><span>Singapore Contec Pte Ltd</span> </label>
                     </li>
 
                     <li><input id='c5' type='checkbox' name='interest' value=5>
-                        <label for ='c5'style='color:white; '> <img src="assets/hexagon.png"/><span>Hexagon</span></label>
+                        <label for ='c5'style='color:white; '> <img src="assets/hexagon.png"/><span>Hexagon Manufacturing Intelligence | Singapore</span></label>
                     </li>
 
                     <li><input id='c14' type='checkbox' name='interest' value=14>
-                        <label for ='c14'style='color:white; '> <img src="assets/makino.png"/><span>Makino Milling Machine Co. Ltd.</span></label>
+                        <label for ='c14'style='color:white; '> <img src="assets/makino.png"/><span>Makino Asia Pte Ltd</span></label>
                     </li>
 
                     <li><input id='c6' type='checkbox' name='interest' value=6>
@@ -170,27 +170,27 @@
                     </li>
 
                     <li><input id='c8' type='checkbox' name='interest' value=8>
-                        <label for ='c8'style='color:white; '> <img src="assets/diaedge.png"/> <span>DIAEDGE Mitsubishi Materials Corporation </span></label>
+                        <label for ='c8'style='color:white; '> <img src="assets/diaedge.png"/> <span>MMC Hardmetal (Thailand) Co Ltd</span></label>
                     </li>
                     
                     <li><input id='c11' type='checkbox' name='interest' value=11>
-                        <label for ='c11'style='color:white; '> <img src="assets/emugen.png"/><span>EMUGE-FRANKEN Singapore Pte. Ltd.</span></label>
+                        <label for ='c11'style='color:white; '> <img src="assets/emugen.png"/><span>EMUGE-FRANKEN Singapore Pte Ltd</span></label>
                     </li>
 
                     <li><input id='c13' type='checkbox' name='interest' value=13>
-                        <label for ='c13'style='color:white; '> <img src="assets/hurco.png"/><span>Hurco (S E Asia) Pte Ltd</span></label>
+                        <label for ='c13'style='color:white; '> <img src="assets/hurco.png"/><span>Hurco (S.E. Asia) Pte Ltd</span></label>
                     </li>
 
                     <li><input id='c9' type='checkbox' name='interest' value=9>
-                        <label for ='c9'style='color:white; '> <img src="assets/openmind.png"/> <span>OPEN MIND Technologies Asia Pacific Pte Ltd </span></label>
+                        <label for ='c9'style='color:white; '> <img src="assets/openmind.png"/> <span>OPEN MIND Technologies Asia Pacific Pte Ltd</span></label>
                     </li>
 
                     <li><input id='c12' type='checkbox' name='interest' value=12>
-                        <label for ='c12'style='color:white;'> <img src="assets/nato.png"/><span>SATO Asia Pacific Pte. Ltd.</span></label>
+                        <label for ='c12'style='color:white;'> <img src="assets/nato.png"/><span>Sato Asia Pacific Pte Ltd</span></label>
                     </li>
 
                     <li><input id='c10' type='checkbox' name='interest' value=10>
-                        <label for ='c10'style='color:white; '> <img src="assets/walt.png"/><span>Walter AG Singapore Pte. Ltd</span> </label>
+                        <label for ='c10'style='color:white; '> <img src="assets/walt.png"/><span>Walter AG Singapore Pte Ltd</span> </label>
                     </li>
 
                 
@@ -208,12 +208,11 @@
                 </div>
                </ul>
                
-               <div style='text-align:justify; margin: 6vh 0 4vh 0; height: 
-                auto;'> 
+               <div style='text-align:justify; margin: 6vh 0 4vh 0; height: auto;'> 
                 <mat-slide-toggle size="large" [checked]="agreecondition2" (change)="agreecondition2=!agreecondition2">
-                    <span style='font-size: 3vw; color: rgb(249, 233, 3); margin: 4vh 0 0 0; text-shadow: 2px 2px 0px #000000;'
-                    >By submitting this form, you agree and consent to your personal data which you
-                   provided being shared with the companies you have expressed your interest in</span>
+                    <span style='vertical-align: middle;font-size: 3vw; color: white; margin: 4vh 0 0 0; background-color: black; opacity: 80%;'>
+                    <span style="opacity: 100%">By submitting this form, you agree and consent to your personal data which you
+                   provided being shared with the companies you have expressed your interest in.</span></span>
                    </mat-slide-toggle>
                </div> 
 
