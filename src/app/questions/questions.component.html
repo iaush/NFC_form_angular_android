@@ -37,6 +37,10 @@
         
         <div class="card" style='background-color: rgb(252, 252, 252); border-radius: 1vw;  border: 1px solid' id="card1" [ngClass]="{'active': open2}"> 
             
+            <span style="position:absolute; top:2%; right:3%; font-size: 3vw; z-index: 10; 
+                ">
+                Tap your NFC to fill this page if<br>you are viewing this on the app</span>
+
            <div class="group" style='margin: 4vh auto'> 
                 <label style='font-size: 4vw'> Your Name </label>
                 <input type="text" class='inputtext' name="name" id="name" placeholder="Name required" [(ngModel)]="Uname" [ngClass]="{'redb':!Uname}" > 

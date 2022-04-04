@@ -402,6 +402,8 @@ export class QuestionsComponent implements OnInit {
       ///change here
       console.log('Not native');
       this.submitform = this.apicall();
+      this.startNFCListener();
+
     } else {
       console.log('Native');
       this.submitform = this.doPost();
