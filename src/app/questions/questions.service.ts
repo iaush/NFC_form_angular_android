@@ -10,7 +10,8 @@ import Swal from 'sweetalert2';
 })
 export class QuestionsService {
 
-
+  poster : any
+  poster2: any
 
   constructor(private http: HttpClient) { }
 
@@ -91,7 +92,7 @@ export class QuestionsService {
 
     
 
-    this.http.post(formURL, body, options).subscribe(r => {
+    this.poster = this.http.post(formURL, body, options).subscribe(r => {
 
 
       if (_data.email_exist == false){
@@ -99,7 +100,7 @@ export class QuestionsService {
           html:
             '</p> NAME : ' + String(_data.name) + '<br>' + 'EMAIL : ' +
             String(_data.email) +'<br>' +
-            '<h2>Thank you for your response! Please retain this pop-up and approach our staff to collect your free mask</h2></p>',
+            '<h2>Thank you for your response! Please retain this pop-up and approach our staff to collect your free mask.</h2></p>',
           title: 'Submission recorded',
           allowOutsideClick: false,
           icon: 'success',
@@ -107,13 +108,14 @@ export class QuestionsService {
         origin.open = !origin.open;
         origin.open5 = !origin.open;
         origin.showspinner=false
+        origin.clicked = false
       }
         else {
             Swal.fire({
                 html:
                   '</p> NAME : ' + String(_data.name) + '<br>' + 'EMAIL : ' +
                   String(_data.email) +'<br>' +
-                  '<h2>Thank you again for your response! This response will overwrite your previous response</h2></p>',
+                  '<h2>Thank you again for your response! This response will overwrite your previous response.</h2></p>',
                 title: 'Submission recorded',
                 allowOutsideClick: false,
                 icon: 'warning'
@@ -121,7 +123,9 @@ export class QuestionsService {
               origin.showspinner=false
               origin.open = !origin.open;
               origin.open5 = !origin.open;
+              origin.clicked = false
             }
+            this.poster.unsubscribe()
     },
       e=>{
 
@@ -138,6 +142,7 @@ export class QuestionsService {
           origin.showspinner=false
           origin.open = !origin.open;
         origin.open5 = !origin.open;
+        origin.clicked = false
         }
           else {
               Swal.fire({
@@ -152,13 +157,14 @@ export class QuestionsService {
                 origin.showspinner=false
                 origin.open = !origin.open;
               origin.open5 = !origin.open;
+              origin.clicked = false
               }
 
-        //console.log(e)
-      }
-
+        this.poster.unsubscribe()
+      },
+    
     );
-
+    
 
 
     var formURL2 = '/forms/d/e/1FAIpQLSeaQBxI5CdzTkRnUARfmS02ByQywaCuYoFWtslUhpJbc7YUNg/formResponse';
@@ -172,17 +178,21 @@ export class QuestionsService {
     body2.append('entry.1331402498_day', _data.date_day);
     body2.append('entry.1684285223', "Feedback Form");
 
-    this.http.post(formURL2, body2, options).subscribe(r => {
+    this.poster = this.http.post(formURL2, body2, options).subscribe(r => {
 
       console.log('Date logging sent')
       console.log(_data.date)
+      this.poster.unsubscribe()
     },
       e=>{
         console.log('Time logging error')
         console.log(e)
+        this.poster.unsubscribe()
       }
+      
     );
-
+    
+    
 
 
   }

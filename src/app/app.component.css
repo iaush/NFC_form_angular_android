@@ -4,7 +4,7 @@
 
 ::ng-deep .mat-slide-toggle-content {
     white-space: normal !important;
-    line-height: 3vw;
+    line-height: 3.5vw;
   }
 
 ::ng-deep .mat-slide-toggle {

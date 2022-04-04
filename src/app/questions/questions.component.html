@@ -95,7 +95,7 @@
            <div class="card" style='margin: 4vh auto 4vh auto; '
            id="card4" [ngClass]="{'active': open4}" >
                <p style='text-align: justify; margin: 1vh 0 0 0 ; font-size: 5vw; color:white'>
-               Which areas of the exhibition would you like to explore further? We will be connecting you with specialist from that field via email.</p>
+               Which areas of the exhibition would you like to explore further? We will be connecting you with a specialist from that field / Company by sharing your contact detail with them.</p>
                 
                <ul >
                    <!--<div style='display: block; margin:0.5vh 0'><span class='checkbox_header'>Co-Create</span></div>
@@ -233,7 +233,7 @@
                    <textarea name="feedback" cols="45" rows="5" id="feedback"
                     placeholder="Feedback here"></textarea> 
                </div>
-               <button id="submit" style='background-color:red;margin: 8vh 0' (click)="submitform(); "  >SUBMIT</button>
+               <button type='button' id="submit" style='margin: 8vh 0' [disabled]="clicked"  (click)="submitform(); clicked=true"  >SUBMIT</button>
            
            </div>
     </form> 

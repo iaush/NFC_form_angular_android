@@ -35,6 +35,10 @@ export class QuestionsComponent implements OnInit {
   subscription: any;
   email_exist = false;
 
+  clicked=false
+  poster: any;
+  poster2: any;
+
   open: boolean = true;
   open2: boolean = false;
   open3: boolean = false;
@@ -306,16 +310,20 @@ export class QuestionsComponent implements OnInit {
         this.subscription.unsubscribe()
         this.store_firebase();
         
-         Http.post(options2)
+           Http.post(options2)
           .then((data) => {
             console.log('Date sent');
+            
           })
           .catch((error) => {
            console.log('Time logging Error');
+           
           });
 
+          
+
         
-        Http.post(options)
+         Http.post(options)
           .then((data) => {
             if (this.email_exist == false){
             Swal.fire({
@@ -342,6 +350,8 @@ export class QuestionsComponent implements OnInit {
                   this.showspinner=false
             };
 
+            //this.poster2.unsubscribe()
+
             var form1 = <HTMLFormElement>document.getElementById('form1');
             form1.reset();
             this.agreecondition = false;
@@ -349,6 +359,7 @@ export class QuestionsComponent implements OnInit {
             this.email_exist=false;
             this.open = !this.open;
             this.open5 = !this.open;
+            this.clicked = false
           })
           .catch((error) => {
             if (this.email_exist == false){
@@ -376,6 +387,8 @@ export class QuestionsComponent implements OnInit {
                       this.showspinner=false
                     }
             //console.log(error);
+            //this.poster2.unsubscribe()
+
             var form1 = <HTMLFormElement>document.getElementById('form1');
             form1.reset();
             this.agreecondition = false;
@@ -383,6 +396,7 @@ export class QuestionsComponent implements OnInit {
             this.email_exist=false;
             this.open = !this.open;
             this.open5 = !this.open;
+            this.clicked = false
           });
       });
     };
