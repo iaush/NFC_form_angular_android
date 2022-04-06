@@ -8,7 +8,7 @@ import { QuestionsComponent } from './questions/questions.component';
 import { NFC, Ndef } from "@awesome-cordova-plugins/nfc/ngx";
 import { IonicModule } from '@ionic/angular';
 
-import { MatStepperModule } from '@angular/material/stepper';
+//import { MatStepperModule } from '@angular/material/stepper';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -43,7 +43,7 @@ const config = {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatStepperModule,
+    //MatStepperModule,
     MatSlideToggleModule,
     BrowserAnimationsModule,
     FormsModule,
