@@ -1,8 +1,6 @@
 <head>
     <link rel="icon" href="./assets/logo.png" type="image/icon type">  
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="sweetalert2.all.min.js"></script>
-    <script src="https://apis.google.com/js/api.js"></script>
 </head>
 
 <body style="background-image: url('assets/BAckground with Merlion-min3.png'); background-position: center top; background-color:rgb(34, 40, 57) ;
@@ -11,14 +9,7 @@
        <div class='spinpop' id='spin' *ngIf="showspinner">
            <ion-spinner type='crescent' color='warning' ></ion-spinner>
        </div>
-       <!--<h1 style='text-align: center; margin: 20% auto 10% auto'> Some words to descibe </h1>
-       <div class='progress_bar'>
-           <mat-horizontal-stepper #stepper labelPosition="bottom" >
-               <mat-step label='Particulars' ></mat-step>
-               <mat-step label='Feedback' ></mat-step>
-               <mat-step label='Submit' ></mat-step>
-           </mat-horizontal-stepper>
-       </div> -->
+       
        
         
         <div class="card active" style ='font-weight: bold'id="card1" [ngClass]="{'active': open}"> 
@@ -37,8 +28,7 @@
         
         <div class="card" style='background-color: rgb(252, 252, 252); border-radius: 1vw;  border: 1px solid' id="card1" [ngClass]="{'active': open2}"> 
             
-            <span style="position:absolute; top:2%; right:3%; font-size: 3vw; z-index: 10; 
-                ">
+            <span style="position:absolute; top:2%; right:3%; font-size: 3vw; z-index: 10; ">
                 Tap your NFC to fill this page if<br>you are viewing this on the app</span>
 
            <div class="group" style='margin: 4vh auto'> 
@@ -196,19 +186,6 @@
                     <li><input id='c10' type='checkbox' name='interest' value=10>
                         <label for ='c10'style='color:white; '> <img src="assets/walt.png"/><span>Walter AG Singapore Pte Ltd</span> </label>
                     </li>
-
-                
-                   <!--<li><input type='checkbox' name='interest' value=2><span class='checkbox'>Implement (Beckhoff Automation Pte Ltd)</span></li>
-                   <li><input type='checkbox' name='interest' value=3><span class='checkbox'>Implement (InnoArk Pte Ltd)</span></li>
-                   <li><input type='checkbox' name='interest' value=4><span class='checkbox'>Implement (Blum-Novotest GmbH)</span></li>
-                   <li><input type='checkbox' name='interest' value=5><span class='checkbox'>Implement (Hexagon)</span></li>
-                   <li><input type='checkbox' name='interest' value=6><span class='checkbox'>Implement (Schneider Electric Singapore Pte Ltd)</span></li>
-                   <li><input type='checkbox' name='interest' value=7><span class='checkbox'>Implement (Singapore Contec Pte Ltd)</span></li>
-                   <li><input type='checkbox' name='interest' value=8><span class='checkbox'>Implement (MMC Hardmetal (Thailand) Co., Ltd.)</span></li>
-                   <li><input type='checkbox' name='interest' value=9><span class='checkbox'>Implement (OPEN MIND Technologies Asia Pacific Pte Ltd)</span></li>
-                   <li><input type='checkbox' name='interest' value=10><span class='checkbox'>Implement (Walter AG Singapore Pte. Ltd)</span></li>
-                   <li><input type='checkbox' name='interest' value=11><span class='checkbox'>Implement (EMUGE-FRANKEN Singapore Pte. Ltd.)</span></li>
-                   <li><input type='checkbox' name='interest' value=12><span class='checkbox'>Implement (SATO Asia Pacific Pte. Ltd.)</span></li>-->
                 </div>
                </ul>
                
