@@ -7,9 +7,9 @@
     line-height: 3.5vw;
   }
 
-::ng-deep .mat-slide-toggle {
-  height: fit-content;
-}
+  ::ng-deep .mat-slide-toggle-thu {
+    background-color: rgb(225, 238, 80);
+} 
 
 ::ng-deep .mat-checkbox-frame {
     border-color: white
