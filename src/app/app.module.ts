@@ -16,10 +16,10 @@ import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 //import { AndroidFullScreen } from '@awesome-cordova-plugins/android-full-screen/ngx';
 import { HttpClientModule } from '@angular/common/http';
-import { Capacitor } from '@capacitor/core';
+//import { Capacitor } from '@capacitor/core';
 
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+//import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 

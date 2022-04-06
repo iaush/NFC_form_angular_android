@@ -5,7 +5,7 @@ import { NFC, Ndef } from '@awesome-cordova-plugins/nfc/ngx';
 
 //import { MatStepper } from '@angular/material/stepper';
 import { Http } from '@capacitor-community/http';
-import { HttpResponse } from '@angular/common/http';
+//import { HttpResponse } from '@angular/common/http';
 import Swal from 'sweetalert2';
 //import { NgModel } from '@angular/forms';
 //import { AndroidFullScreen } from '@awesome-cordova-plugins/android-full-screen/ngx';
@@ -330,7 +330,7 @@ export class QuestionsComponent implements OnInit {
               html:
                 '</p> NAME : ' + String(inputnameElement.value) + '<br>' + 'EMAIL : ' +
                 String(inputemailElement.value) +'<br>' +
-                '<h2>Thank you for your response! Please retain this pop-up and approach our staff to collect your free mask</h2></p>',
+                '<h2>Thank you for your response! Please retain this pop-up and approach our staff to collect your free mask.</h2></p>',
               title: 'Submission recorded',
               allowOutsideClick: false,
               icon: 'success',
@@ -342,7 +342,7 @@ export class QuestionsComponent implements OnInit {
                     html:
                       '</p> NAME : ' + String(inputnameElement.value) + '<br>' + 'EMAIL : ' +
                       String(inputemailElement.value) +'<br>' +
-                      '<h2>Thank you again for your response! This response will overwrite your previous response</h2></p>',
+                      '<h2>Thank you again for your response! This response will overwrite your previous response.</h2></p>',
                     title: 'Submission recorded',
                     allowOutsideClick: false,
                     icon: 'warning',
@@ -563,7 +563,7 @@ export class QuestionsComponent implements OnInit {
         const inputnameElement = <HTMLInputElement>(
           document.getElementById('name')
         );
-        inputnameElement.value = msg.split('FN:')[1].split('TEL;')[0];
+        inputnameElement.value = msg.split('FN:')[1].split('TEL;')[0].split('EMAIL')[0];
         this.Uname = inputnameElement.value;
         this.formResponse.name = inputnameElement.value;
         //this.formResponse.name="PLACEHOLDER";
