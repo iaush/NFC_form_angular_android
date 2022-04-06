@@ -3,24 +3,23 @@ import { Component, OnInit } from '@angular/core';
 
 import { NFC, Ndef } from '@awesome-cordova-plugins/nfc/ngx';
 
-
-import { Http } from '@capacitor-community/http';
-
-import Swal from 'sweetalert2';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { HttpClient } from '@angular/common/http';
-import { Capacitor } from '@capacitor/core';
 //import { MatStepper } from '@angular/material/stepper';
-//import {GoogleSpreadsheet} from 'google-spreadsheet';
-//import { Observable } from 'rxjs';
-//import { google } from 'googleapis';
-//import { firstValueFrom } from 'rxjs';
+import { Http } from '@capacitor-community/http';
 //import { HttpResponse } from '@angular/common/http';
+import Swal from 'sweetalert2';
 //import { NgModel } from '@angular/forms';
 //import { AndroidFullScreen } from '@awesome-cordova-plugins/android-full-screen/ngx';
+import { HttpClient } from '@angular/common/http';
+import { Capacitor } from '@capacitor/core';
 
+//import {GoogleSpreadsheet} from 'google-spreadsheet';
+//import { Observable } from 'rxjs';
 
+//import { google } from 'googleapis';
 
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
+//import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-questions',

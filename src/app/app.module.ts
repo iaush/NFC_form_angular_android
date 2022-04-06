@@ -8,20 +8,18 @@ import { QuestionsComponent } from './questions/questions.component';
 import { NFC, Ndef } from "@awesome-cordova-plugins/nfc/ngx";
 import { IonicModule } from '@ionic/angular';
 
-
+//import { MatStepperModule } from '@angular/material/stepper';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-
 // import { FormGroup, FormControl, Validators } from '@angular/forms';
 //import { MatCheckboxModule } from '@angular/material/checkbox';
 //import { AndroidFullScreen } from '@awesome-cordova-plugins/android-full-screen/ngx';
-//import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 //import { Capacitor } from '@capacitor/core';
-//import { MatStepperModule } from '@angular/material/stepper';
-//import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { AngularFireModule } from '@angular/fire/compat';
+//import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 
@@ -54,7 +52,7 @@ const config = {
     FormControl, 
     Validators, */
     //MatCheckboxModule,
-    //HttpClientModule,
+    HttpClientModule,
     IonicModule.forRoot(),
     AngularFireModule.initializeApp(config),
     AngularFireModule,
@@ -65,6 +63,8 @@ const config = {
   ],
   providers: [NFC,
     Ndef,
+    
+    
     ],
   bootstrap: [AppComponent]
 })
